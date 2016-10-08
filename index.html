@@ -43,7 +43,10 @@ ai = {
       width: 20,
       height: 100,
 
-      update: function() {},
+      update: function() {
+            var ai_brain = ball.y - (this.height - ball.side)*0.5;
+            this.y = ai_brain;
+      },
       draw: function() {
         ctx.fillRect(this.x, this.y, this.width, this.height);
       }
