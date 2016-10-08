@@ -45,7 +45,17 @@ ball = {
       side: 20,
       speed: 5,
 
-      update: function() {},
+      update: function() {
+        this.x += this.vel.x;
+        this.y += this.vel.y;
+
+        if (0 > this.y || this.y+this.side > HEIGHT){
+          var offset = this.vel.y < 0 ? 0 - this.y : HEIGHT - (this.y+this.side);
+          this.y += 2*offset;
+          this.vel.y *= -1;
+
+        }
+      },
       draw: function() {
         ctx.fillRect(this.x, this.y, this.side, this.side);
       }
